@@ -26,15 +26,25 @@ public class TablaMultiplicar {
         this.numeroTabla = numero;
         this.listaTextos = new ArrayList<>();
     }
-    
-    public void generarTabla(PrintWriter out) {
-    for (int i = 0; i <= 10; i++) {
-        int resultado = this.numeroTabla * i;
-        out.printf("%d x %d = %d %n", this.numeroTabla, i, resultado);
+    /**
+     * Devuelve el número base de la tabla actual.
+     * @return El número de la tabla.
+     */
+    public int getNumero() {
+        return this.numeroTabla;
+    }
+    /**
+     * Genera la tabla de multiplicar y la almacena en la lista interna.
+     */
+    public void generarTabla() {
+
+        this.listaTextos.clear(); 
         
-        String linea = this.numeroTabla + " x " + i + " = " + resultado;
-        this.listaTextos.add(linea);
-    	}
+        for (int i = 0; i <= 10; i++) {
+            int resultado = this.numeroTabla * i;
+            String linea = this.numeroTabla + " x " + i + " = " + resultado;
+            this.listaTextos.add(linea);
+        }
     }
     /**
      * Devuelve la lista con las líneas de la tabla de multiplicar generada.
