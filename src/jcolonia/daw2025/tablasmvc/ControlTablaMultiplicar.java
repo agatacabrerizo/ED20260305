@@ -9,6 +9,12 @@ public class ControlTablaMultiplicar {
 	*/
 	public static final String FORMATO_RUTA_ARCHIVO_EXPORTACIÓN=
 		"tabla del %02d.txt";
+	/** Opciones a mostrar en el menú principal */
+	public static final String[] OPCIONES_MENÚ_PRINCIPAL = {
+			"Mostrar tabla",
+			"Cambiar tabla",
+			"Exportar tabla"
+	};
 	
 	/** Tabla de multiplicar activa. */
 	private TablaMultiplicar tabla;
@@ -76,9 +82,10 @@ public class ControlTablaMultiplicar {
 	private void cambiarTabla(){
 		int n;
 		
-		VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
 		
-		tabla=new TablaMultiplicar(n);
+		n = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
+		
+		tabla = new TablaMultiplicar(n);
 		tabla.generarTabla();
 	}
 
