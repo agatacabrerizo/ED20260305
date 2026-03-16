@@ -1,5 +1,30 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Representa la lógica matemática de una tabla de multiplicar.
+ * Se encarga de calcular, almacenar y formatear la tabla.
+ * @author <a href="mailto:agatacabrerizo@gmail.com">Ágata Cabrerizo</a>
+ * @version 2026.03.16 - 01 
+ */
 public class TablaMultiplicar {
+
+    /** El número base del cual se generará la tabla de multiplicar. */
+    private int numeroTabla;
+    
+    /** Lista que almacena cada línea de la tabla generada. */
+    private List<String> listaTextos;
+
+    /**
+     * Constructor de la clase. Inicializa la tabla con un número.
+     * @param numero El número base para inicializar la tabla.
+     */
+    public TablaMultiplicar(int numero) {
+        this.numeroTabla = numero;
+        this.listaTextos = new ArrayList<>();
+    }
 
 }
