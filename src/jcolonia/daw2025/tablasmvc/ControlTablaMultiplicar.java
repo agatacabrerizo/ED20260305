@@ -2,6 +2,8 @@ package jcolonia.daw2025.tablasmvc;
 /**
 * Núcleo de aplicación de consola de texto con menús. Aplicación
 * de texto usando tablas de multiplicar infantiles clásicas. 
+* @author <a href="mailto:agatacabrerizo@gmail.com">Ágata Cabrerizo</a>
+* @version 2026.03.16 - 01 
 */
 public class ControlTablaMultiplicar {
 	/** Formato tipo «printf» para el nombre del archivo de
@@ -15,15 +17,12 @@ public class ControlTablaMultiplicar {
 			"Cambiar tabla",
 			"Exportar tabla"
 	};
-	
 	/** Tabla de multiplicar activa. */
 	private TablaMultiplicar tabla;
 
 	public ControlTablaMultiplicar(){
 		init();
 	}
-
-
 	/**
 	* Pide al usuario un número y prepara la primera
 	* tabla activa.
@@ -31,7 +30,6 @@ public class ControlTablaMultiplicar {
 	public void init(){
 		cambiarTabla();
 	}
-
 	/**
 	* Gestión del menú principal. Desde este menú
 	* se ejecutan las opciones disponibles a elección del usuario.
@@ -40,9 +38,7 @@ public class ControlTablaMultiplicar {
 	public void buclePrincipal(){
 		VistaMenú menú;
 		int opción;
-		
 		menú=new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
-		
 		do{
 			menú.mostrarOpciones();
 			opción=menú.pedirOpción();
@@ -63,41 +59,28 @@ public class ControlTablaMultiplicar {
 				opciónNoDisponible();
 				break;
 			}
-			
 		} while (opción!=0);
-		
 		VistaGeneral.mostrarAviso("FIN");
-		
 	}
-	
 	/**
 	* Muestra por pantalla -envía a la salida estándar-
 	* los productos correspondientes a la tabla activa.
 	*/
 	private void mostrarTabla(){
-		
 		tabla.generarTabla();
 		
+		System.out.println("\n--- TABLA DEL " + tabla.getNumero() + " ---");
 		
 		for (String linea : tabla.toListPantalla()) {
-			System.out.println(linea); 
+			System.out.println(linea);
 		}
 		System.out.println(); 
-	}
-	
-	/**
-	 * Muestra un mensaje de aviso indicando que 
-	 * la opción elegida no está disponible.
-	*/
-	private void opciónNoDisponible(){
-		VistaGeneral.mostrarAviso("Esa opción no está disponible. Por favor, elige una válida.");
 	}
 	/** Cambia la tabla activa por otra elegida por el usuario.
 	*/
 	private void cambiarTabla(){
 		int n;
-		
-		
+	
 		n = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
 		
 		tabla = new TablaMultiplicar(n);
@@ -107,15 +90,23 @@ public class ControlTablaMultiplicar {
 	* Envía a un archivo
 	* los productos correspondientes a la tabla activa.
 	*/
-	private void exportarTabla(){}
-	
+	private void exportarTabla(){
+		
+		String nombreArchivo = String.format(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN, tabla.getNumero());
+		try {
+			ExportacionArchivo exportador = new ExportacionArchivo(nombreArchivo);
+			tabla.generarTabla(); 
+			exportador.guardar(tabla.toListaExportacion()); 
+			VistaGeneral.mostrarAviso("✅ Tabla exportada correctamente a: " + nombreArchivo);
+		} catch (Exception e) {
+			VistaGeneral.mostrarAviso("❌ Error al exportar: " + e.getMessage());
+		}
+	}
 	/**
 	 * Muestra un mensaje de aviso indicando que 
 	 * la opción elegida no está disponible.
 	*/
-	private void opciónNoDisponible(){}
-
-
-
-
+	private void opciónNoDisponible(){
+		VistaGeneral.mostrarAviso("Esa opción no está disponible. Por favor, elige una válida.");
+	}
 }
