@@ -36,4 +36,19 @@ public class TablaMultiplicar {
         this.listaTextos.add(linea);
     	}
     }
+    /**
+     * Devuelve la lista con las líneas de la tabla de multiplicar generada.
+     * @return Lista de cadenas de texto para exportación.
+     */
+    public List<String> toListaExportacion() {
+        return this.listaTextos;
+    }
+
+    /**
+     * Devuelve la lista con las líneas de la tabla para ser mostradas por pantalla.
+     * @return Lista de cadenas de texto.
+     */
+    public List<String> toListPantalla() {
+        return this.listaTextos;
+    }
 }
