@@ -26,5 +26,14 @@ public class TablaMultiplicar {
         this.numeroTabla = numero;
         this.listaTextos = new ArrayList<>();
     }
-
+    
+    public void generarTabla(PrintWriter out) {
+    for (int i = 0; i <= 10; i++) {
+        int resultado = this.numeroTabla * i;
+        out.printf("%d x %d = %d %n", this.numeroTabla, i, resultado);
+        
+        String linea = this.numeroTabla + " x " + i + " = " + resultado;
+        this.listaTextos.add(linea);
+    	}
+    }
 }
