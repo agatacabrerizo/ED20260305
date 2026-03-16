@@ -21,6 +21,7 @@ classDiagram
         -numero : int
         -listaTextos : List~String~
         +TablaMultiplicar(int numero)
+        +getNumero() int
         +generarTabla() void
         +toListaExportacion() List&lt;String&gt;
         +toListPantalla() List&lt;String&gt;
