@@ -51,4 +51,22 @@ public class TablaMultiplicar {
     public List<String> toListPantalla() {
         return this.listaTextos;
     }
+    /**
+     * Convierte el contenido de la tabla en un único bloque de texto.
+     * @return Un String con toda la tabla formateada.
+     */
+    @Override
+    public String toString() {
+        if (this.listaTextos == null || this.listaTextos.isEmpty()) {
+            return "La tabla aún no ha sido generada.";
+        }
+
+        String textoFinal = "";
+
+        for (int i = 0; i < this.listaTextos.size(); i++) {
+            textoFinal = textoFinal + this.listaTextos.get(i) + "\n";
+        }
+
+        return textoFinal;
+    }
 }
