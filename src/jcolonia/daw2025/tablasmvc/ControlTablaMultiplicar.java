@@ -74,10 +74,25 @@ public class ControlTablaMultiplicar {
 	* Muestra por pantalla -envía a la salida estándar-
 	* los productos correspondientes a la tabla activa.
 	*/
-	private void mostrarTabla(){}
+	private void mostrarTabla(){
+		
+		tabla.generarTabla();
+		
+		
+		for (String linea : tabla.toListPantalla()) {
+			System.out.println(linea); 
+		}
+		System.out.println(); 
+	}
 	
 	/**
-	* Cambia la tabla activa por otra elegida por el usuario.
+	 * Muestra un mensaje de aviso indicando que 
+	 * la opción elegida no está disponible.
+	*/
+	private void opciónNoDisponible(){
+		VistaGeneral.mostrarAviso("Esa opción no está disponible. Por favor, elige una válida.");
+	}
+	/** Cambia la tabla activa por otra elegida por el usuario.
 	*/
 	private void cambiarTabla(){
 		int n;
@@ -88,7 +103,6 @@ public class ControlTablaMultiplicar {
 		tabla = new TablaMultiplicar(n);
 		tabla.generarTabla();
 	}
-
 	/**
 	* Envía a un archivo
 	* los productos correspondientes a la tabla activa.
