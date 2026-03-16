@@ -1,14 +1,14 @@
 ```mermaid
 classDiagram
-    ControlTablaMultiplicar -- TablaMultiplicar
-    ControlTablaMultiplicar ..> ExportacionArchivo
+    ControlTablaMultiplicar -- TablaMultiplicar 
+    ControlTablaMultiplicar ..> ExportacionArchivo 
     ControlTablaMultiplicar -- VistaMenu
     ControlTablaMultiplicar ..> ExcepcionesES
-    VistaMenu --|> VistaGeneral : Hereda
+    VistaMenu --|> VistaGeneral
 
     class ControlTablaMultiplicar{
-        -TablaMultiplicar tabla
-        -VistaGeneral menuPrincipal
+        -tabla : TablaMultiplicar
+        -menuPrincipal : VistaGeneral
         +bucleGeneral() void
         +int() void
 		-anotarTabla() void
@@ -18,7 +18,8 @@ classDiagram
     }
 
     class TablaMultiplicar{
-        -int numero
+        -numero : int
+        -listaTextos : List~String~
         +TablaMultiplicar(int numero)
         +generarTabla() void
         +toListaExportacion() List&lt;String&gt;
@@ -27,15 +28,15 @@ classDiagram
     }
 
     class ExportacionArchivo {
-        -Path refArchivo
+        -refArchivo : Path
         +ExportacionArchivo(String rutaArchivo)
         +guardar(List&lt;String&gt; contenidos) void
     }
 
     class VistaMenu{
-        -String titulo
-        -ListString opciones
-        +VistaMenu(String titulo, List&lt;String&lt; opciones)
+        -titulo : String
+        -opciones : List ~String~
+        +VistaMenu(titulo String ,opciones List~String~ )
         +mostrarTitulo() void
         +mostrarOpciones() void
         +pedirOpciones() int
@@ -43,8 +44,8 @@ classDiagram
     }
 
     class VistaGeneral{
-        -String FORMATO_PRINTF_TEXTO$
-        -String FORMATO_PRINTF_AVISO$
+        -FORMATO_PRINTF_TEXTO : String$
+        -FORMATO_PRINTF_AVISO : String$
         +mostrarTexto(String texto)$ void
         +mostrarAviso(String texto)$ void
         +mostrarTitulo1(String texto)$ void
