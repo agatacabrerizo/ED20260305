@@ -12,7 +12,7 @@ public class VistaGeneral {
 	/**Formato estándar para mostrar textos genéricos (%s es el texto, %n el salto de línea). */
 	private static final String FORMATO_PRINTF_TEXTO = "%s%n";
 	/**Formato destacado para mostrar mensajes de advertencia o error. */
-	private static final String FORMATO_PRINTF_AVISO = ""¡AVISO! %s %n";
+	private static final String FORMATO_PRINTF_AVISO = "¡AVISO! %s %n";
 	/**Herramienta interna para la lectura de datos introducidos por teclado. */   
 	private static final Scanner scan = new Scanner(System.in);
 	/**

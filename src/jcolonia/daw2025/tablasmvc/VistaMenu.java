@@ -7,6 +7,7 @@ package jcolonia.daw2025.tablasmvc;
  */
 import java.util.List;
 
+
 public class VistaMenu extends VistaGeneral{
 	/** Texto principal que actúa como encabezado del menú. */
 	private String titulo;
@@ -22,12 +23,11 @@ public class VistaMenu extends VistaGeneral{
 	public VistaMenu (String titulo, List<String> opciones){
 		this.titulo = titulo;
 		this.opciones=opciones;
-	
+	}
 	/**
 	*Procedimiento que presenta el texto principal por pantalla 
 	*utilizando el formato de encabezado destacado.
 	*/
-	}
 	public void mostrarTitulo() {
         mostrarTitulo1(this.titulo);
 	}
