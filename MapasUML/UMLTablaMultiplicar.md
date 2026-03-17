@@ -3,18 +3,16 @@ classDiagram
     ControlTablaMultiplicar -- TablaMultiplicar 
     ControlTablaMultiplicar ..> ExportacionArchivo 
     ControlTablaMultiplicar -- VistaMenu
-    ControlTablaMultiplicar ..> ExcepcionesES
     VistaMenu --|> VistaGeneral
 
     class ControlTablaMultiplicar{
         -tabla : TablaMultiplicar
         -menuPrincipal : VistaGeneral
-        +bucleGeneral() void
-        +int() void
-		-anotarTabla() void
+       + buclePrincipal()
+        +init()
         -exportarTabla() void
         -cambiarTabla() void
-        -opcionDisponible() void
+         -opciónNoDisponible()
     }
 
     class TablaMultiplicar{

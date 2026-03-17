@@ -45,10 +45,11 @@ public class VistaGeneral {
 	 *Detiene la ejecución del programa temporalmente hasta que el usuario pulsa la tecla Intro.
 	 *@param texto El mensaje que se mostrará antes de la pausa (ej. "Pulsa Intro...").
 	 */
-	 public static void pedirConfirmacion(String texto) {
-		 System.out.print(texto + " (s/n): ");
-	     scan.nextLine(); 
-	 }
+	 public static boolean pedirConfirmacion(String texto) {
+		    System.out.print(texto + " (s/n): ");
+		    String respuesta = scan.nextLine().trim().toLowerCase();
+		    return respuesta.equals("s");
+		}
 	 /**
 	 *Muestra una cadena de texto por pantalla utilizando el formato estándar definido.
 	 *@param texto La información que se desea mostrar.

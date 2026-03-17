@@ -39,13 +39,6 @@ public class VistaMenu extends VistaGeneral{
         mostrarLista(this.opciones);
     }
 	/**
-    *Procedimiento que presenta la colección de alternativas disponibles 
-    *en forma de lista numerada.
-    */
-	public static void mostrarTexto(String texto) {
-        VistaGeneral.mostrarTexto(texto); 
-    }
-	/**
     *Función que solicita al usuario la introducción de un valor numérico 
     *para seleccionar una de las alternativas mostradas.
     *@return El número entero correspondiente a la alternativa elegida.

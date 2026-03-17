@@ -28,20 +28,13 @@ public class ExportacionArchivo {
      * Guarda la lista línea por línea en el archivo de texto.
      * @param contenidos La lista con las líneas a guardar.
      */
-    public void guardar(List<String> contenidos) {
-        File archivoDestino = this.refArchivo.toFile();
-        
-        try {
-            PrintWriter escritor = new PrintWriter(archivoDestino);
-      
-            for (int i = 0; i < contenidos.size(); i++) {
-                escritor.println(contenidos.get(i));
-            }
-            escritor.close(); 
-            System.out.println("Archivo guardado correctamente.");
-	        } catch (Exception e) { 
-	            System.out.println("Error: No se pudo escribir el archivo.");
+	public void guardar(List<String> contenidos) throws Exception {
+	    File archivoDestino = this.refArchivo.toFile();
+	    try (PrintWriter escritor = new PrintWriter(archivoDestino)) {
+	        for (String linea : contenidos) {
+	            escritor.println(linea);
 	        }
+	    }
     }
 }
 

@@ -96,7 +96,6 @@ public class ControlTablaMultiplicar {
 		String nombreArchivo = String.format(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN, tabla.getNumero());
 		try {
 			ExportacionArchivo exportador = new ExportacionArchivo(nombreArchivo);
-			tabla.generarTabla(); 
 			exportador.guardar(tabla.toListaExportacion()); 
 			VistaGeneral.mostrarAviso("✅ Tabla exportada correctamente a: " + nombreArchivo);
 		} catch (Exception e) {
