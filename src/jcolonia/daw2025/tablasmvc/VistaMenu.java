@@ -11,4 +11,13 @@ public class VistaMenu extends VistaGeneral{
 		this.opciones=opciones;
 		
 	}
+	public void mostrarTitulo() {
+        mostrarTitulo1(this.titulo);
+	}
+	public void mostrarOpciones() {
+        mostrarLista(this.opciones);
+    }
+	public static void mostrarTexto(String texto) {
+        VistaGeneral.mostrarTexto(texto); 
+    }
 }
