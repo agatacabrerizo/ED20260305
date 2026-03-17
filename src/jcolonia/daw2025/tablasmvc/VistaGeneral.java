@@ -1,5 +1,6 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class VistaGeneral {
@@ -43,5 +44,10 @@ public class VistaGeneral {
 	    public static void mostrarTitulo2(String texto) {
 	        System.out.println(" " + texto + " ");
 	    }
-
+	    public static void mostrarLista(List<String> lista) {
+	        for (int i = 0; i < lista.size(); i++) {
+	          
+	            System.out.println((i + 1) + ". " + lista.get(i));
+	        }
+	    }
 }
